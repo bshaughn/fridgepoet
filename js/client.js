@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
                 crossDomain: true,
                 dataType: "jsonp",
                 success: function (data, status) {
-                    $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="word"><p>'+data.Word+'</p></div>');
+                    $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+data.Word+'</p></div>');
                 },
                 error: function (xOptions, textStatus) {
                     alert(textStatus);
@@ -42,14 +42,6 @@ jQuery(document).ready(function($){
             });
         })(i);
     }
-
-    //change word's parent container if they are dragged from wordbank to fridge
-    $("#fridge").droppable({
-        drop: function(event, ui) {
-            //Move the element to the new parent
-            $(this).append(ui.draggable);
-        }
-    });
 
     //after words are rendered, make them draggable objects
     setTimeout(function(){
@@ -84,6 +76,29 @@ jQuery(document).ready(function($){
         });
     }, 2000);
 
+    //change word's parent container if they are dragged from wordbank to fridge
+    $("#fridge").droppable({
+        drop: function(event, ui) {
+            //move the element to the new parent
+            $(this).append(ui.draggable);
+            var newWord = ui.draggable;
+            var guid = newWord.attr("id");
+            var word = newWord.text();
+            var pos = newWord.position();
+            //if the word was dropped from the wordbank, tell the server there is a new word on the fridge
+            if (newWord.hasClass('new')) {
+                socket.emit('new_word',{
+                    'guid': guid,
+                    'word': word,
+                    'x': pos.left,
+                    'y': pos.top,
+                    'clientId': clientId
+                });
+                newWord.removeClass('new');
+            }
+        }
+    });
+
     //emit mousemove data to server
     $("body").mousemove(function (event) {
         if($.now() - lastEmit > 30){
@@ -92,7 +107,6 @@ jQuery(document).ready(function($){
                 'y': event.pageY,
                 'clientId': clientId
             });
-            //lastEmit = $.now();
         }
     });
 
@@ -134,41 +148,35 @@ jQuery(document).ready(function($){
         thisWord.css({"left":x, "top":y});
     }
 
-    //flag to check if new word has been created
-    var alreadyCreated = false;
-
     //if there is a new word on the fridge, render it
-    socket.on('new_word', function (data) {
-        //make sure word is only rendered once
-        if (alreadyCreated == false) {
-            console.log('new word!');
-            var newWord = $('<div id="'+data.guid+'" class="word" style="position: absolute; left:'+data.x+'px; top: '+data.y+'px;"><p>'+data.word+'</p></div>');
-            $('#fridge').append(newWord);
-            //bind drag event to new word
-            $(newWord).draggable({
-                snap: true,
-                zIndex: 100,
-                drag: function (event, ui) {
-                    var guid = $(this).attr("id");
-                    var word = $(this).text();
-                    var pos = $(this).position();
-                    //on drag, emit data to server
-                    if ($.now() - lastEmit > 30) {
-                        socket.emit('dragging',{
-                            'guid': guid,
-                            'word': word,
-                            'x': pos.left,
-                            'y': pos.top,
-                            'clientId': clientId
-                        });
-                        lastEmit = $.now();
-                    }
+    socket.on('create_new_word', function (data) {
+        var newWord = $('<div id="'+data.guid+'" class="word animated zoomIn" style="position: absolute; left:'+data.x+'px; top: '+data.y+'px;"><p>'+data.word+'</p></div>');
+        $('#fridge').append(newWord);
+        //remove animation classes after animation completes
+        setTimeout(function(){
+            newWord.removeClass('animated zoomIn');
+        },1000);
+        //bind drag event to new word
+        $(newWord).draggable({
+            snap: true,
+            zIndex: 100,
+            drag: function (event, ui) {
+                var guid = $(this).attr("id");
+                var word = $(this).text();
+                var pos = $(this).position();
+                //on drag, emit data to server
+                if ($.now() - lastEmit > 30) {
+                    socket.emit('dragging',{
+                        'guid': guid,
+                        'word': word,
+                        'x': pos.left,
+                        'y': pos.top,
+                        'clientId': clientId
+                    });
+                    lastEmit = $.now();
                 }
-            });
-            alreadyCreated = true;
-        } else {
-            moveWord(data.guid, data.x, data.y);
-        }
+            }
+        });
     });
 
     //state of menu animation

@@ -41,21 +41,31 @@ io.on('connection', function (socket) {
         for (var i=0; i<wordData.words.length; i++) {
             //check if the word exists in JSON
             if (wordData.words[i].guid == data.guid) {
+                wordData.words[i].guid = parseInt(data.guid); //make sure clientId is int
                 wordData.words[i].x = data.x;
                 wordData.words[i].y = data.y;
-                wordData.words[i].clientId = parseInt(data.clientId); //make sure clientId is int not string...
+                wordData.words[i].clientId = parseInt(data.clientId); //make sure clientId is int
                 //write changes to JSON file
                 fs.writeFile(jsonFile, JSON.stringify(wordData, null, 4), function (error) {
                     if (error) {
                         return console.log(error);
                     }
-                    console.log(JSON.stringify(wordData));
-                    console.log('writing to ' + jsonFile);
                 });
                 break;
-            } else if (!wordData.words[i].hasOwnProperty(data.guid)) { //if the word is new, broadcast to clients
-                socket.broadcast.emit('new_word', data);
             }
         }
+    });
+    //when a client introduces a new word...
+    socket.on('new_word', function (data) {
+        //broadcast to clients
+        socket.broadcast.emit('create_new_word', data);
+        //and write new word to JSON
+        wordData['words'].push({"guid":parseInt(data.guid),"word":data.word,"x":data.x,"y":data.y,"clientId":parseInt(data.clientId)});
+        fs.writeFile(jsonFile, JSON.stringify(wordData, null, 4), function (error) {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('added new word to ' + jsonFile);
+        });
     });
 });

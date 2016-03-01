@@ -263,9 +263,47 @@ body {
 	width:15px;
 	height:22px;
 	background:url('../images/pointer.png') no-repeat -4px 0;
-	-webkit-background-size:20px 20px;
-	-ms-background-size:20px 20px;
-	-moz-background-size:20px 20px;
-	background-size:20px 20px;
+	-webkit-background-size:18px 18px;
+	-ms-background-size:18px 18px;
+	-moz-background-size:18px 18px;
+	background-size:18px 18px;
 	z-index:101;
+}
+
+/*animations*/
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3,.3,.3);
+        transform: scale3d(.3,.3,.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3,.3,.3);
+        transform: scale3d(.3,.3,.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
 }
