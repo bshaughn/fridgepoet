@@ -16,17 +16,39 @@ jQuery(document).ready(function($){
     var lastEmit = $.now();
     var prev = {};
 
+    socket.on('heres-your-words', function (data) {
+        //console.log("called heres-your-words");
+        //testwordbank = data;
+        console.log("test word bank: " + data);
+        console.log("number of words: " + data.length);
+        populateWordBank(data);
+    });
+  
     //build DOM using word data from server
     socket.on('word_data', function (data) {
-        console.log(data);
-        for (var i=0; i<=data.words.length; i++) {
+        console.log("client got word data event");
+        
+      //  console.log(data);
+        //for (var i=0; i<=data.words.length; i++) {
+        for (var i=0; i<data.words.length; i++) {
             $('#fridge').append('<div id="'+data.words[i].guid+'" class="word" style="position: absolute; left:'+data.words[i].x+'px; top: '+data.words[i].y+'px;"><p>'+data.words[i].word+'</p></div>');
         }
+        
     });
 
+    function populateWordBank(words) {
     //create our wordbank words
     wordcount = 25;
+    //wordcount = 4; //just for testing
     for (var i=0; i<=wordcount; i++) {
+
+        //replace with Gutenberg slicer
+
+        //$('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>FaceBlaster</p></div>');
+
+        $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
+
+        /*
         (function(index){
             $.ajax({
                 type: "GET",
@@ -41,7 +63,10 @@ jQuery(document).ready(function($){
                 }
             });
         })(i);
+        */
     }
+}
+
 
     //after words are rendered, make them draggable objects
     setTimeout(function(){

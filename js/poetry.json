@@ -3,23 +3,23 @@
         {
             "guid": 123456791,
             "word": "bird",
-            "x": 510,
-            "y": 67,
-            "clientId": 255456574011
+            "x": 649,
+            "y": 39,
+            "clientId": 224075810498
         },
         {
             "guid": 123456790,
             "word": "up",
-            "x": 551,
-            "y": 67,
-            "clientId": 255456574011
+            "x": 416,
+            "y": 39,
+            "clientId": 224075810498
         },
         {
             "guid": 123456789,
             "word": "buzz",
-            "x": 487,
-            "y": 260,
-            "clientId": 660504562292
+            "x": 541,
+            "y": 446,
+            "clientId": 224075810498
         },
         {
             "guid": 123456788,
@@ -38,16 +38,16 @@
         {
             "guid": 123456786,
             "word": "the",
-            "x": 555,
-            "y": 172,
-            "clientId": 1387779978125
+            "x": 446,
+            "y": 39,
+            "clientId": 224075810498
         },
         {
             "guid": 123456785,
             "word": "pretzels",
-            "x": 487,
-            "y": 216,
-            "clientId": 1387779978125
+            "x": 440,
+            "y": 205,
+            "clientId": 1321354623482
         },
         {
             "guid": 123456784,
@@ -66,9 +66,9 @@
         {
             "guid": 123456782,
             "word": "the",
-            "x": 792,
-            "y": 328,
-            "clientId": 898930545845
+            "x": 738,
+            "y": 372,
+            "clientId": 224075810498
         },
         {
             "guid": 123456781,
@@ -76,6 +76,160 @@
             "x": 827,
             "y": 328,
             "clientId": 898930545845
+        },
+        {
+            "guid": 932097794,
+            "word": "crossed ",
+            "x": 351,
+            "y": 39,
+            "clientId": 1031392074023
+        },
+        {
+            "guid": 521119307,
+            "word": "house holding down ",
+            "x": 49,
+            "y": 146,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 996034979,
+            "word": "with awe and ",
+            "x": 335,
+            "y": 249,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 68037273,
+            "word": "love's bitter ",
+            "x": 653,
+            "y": 161,
+            "clientId": 1321354623482
+        },
+        {
+            "guid": 913162524,
+            "word": "wretched ",
+            "x": 633,
+            "y": 205,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 390679738,
+            "word": "words\nshimmering ",
+            "x": 508,
+            "y": 161,
+            "clientId": 1321354623482
+        },
+        {
+            "guid": 823994090,
+            "word": "by two A ",
+            "x": 481,
+            "y": 39,
+            "clientId": 224075810498
+        },
+        {
+            "guid": 712482891,
+            "word": "cloud began ",
+            "x": 554,
+            "y": 39,
+            "clientId": 224075810498
+        },
+        {
+            "guid": 612667448,
+            "word": "Fergus' song\nI sang ",
+            "x": 82,
+            "y": 302,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 400336721,
+            "word": "chords Her\ndoor ",
+            "x": 508,
+            "y": 205,
+            "clientId": 1321354623482
+        },
+        {
+            "guid": 493536191,
+            "word": "slowly wholly ",
+            "x": 382.8125,
+            "y": 459,
+            "clientId": 224075810498
+        },
+        {
+            "guid": 432082272,
+            "word": "chords Wavewhite wedded ",
+            "x": 382.8125,
+            "y": 503,
+            "clientId": 224075810498
+        },
+        {
+            "guid": 553256438,
+            "word": "in her ",
+            "x": 395,
+            "y": 373,
+            "clientId": 151306951815
+        },
+        {
+            "guid": 582387322,
+            "word": "awe and pity\nI ",
+            "x": 354,
+            "y": 117,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 608554694,
+            "word": "mystery\nWhere now\nHer secrets ",
+            "x": 464,
+            "y": 117,
+            "clientId": 1321354623482
+        },
+        {
+            "guid": 291794991,
+            "word": "fortyfoot hole ",
+            "x": 603,
+            "y": 249,
+            "clientId": 734058295642
+        },
+        {
+            "guid": 573595305,
+            "word": "nimbly Mercury's hat ",
+            "x": 496,
+            "y": 293,
+            "clientId": 1031392074023
+        },
+        {
+            "guid": 315180259,
+            "word": "on the ",
+            "x": 440,
+            "y": 293,
+            "clientId": 1370989722766
+        },
+        {
+            "guid": 4604749,
+            "word": "of bitter ",
+            "x": 335,
+            "y": 293,
+            "clientId": 1370989722766
+        },
+        {
+            "guid": 676751450,
+            "word": "breath rattling ",
+            "x": 655.078125,
+            "y": 465,
+            "clientId": 633606176092
+        },
+        {
+            "guid": 959178266,
+            "word": "the bowl ",
+            "x": 531.53125,
+            "y": 337,
+            "clientId": 1074297079940
+        },
+        {
+            "guid": 802855632,
+            "word": "in white ",
+            "x": 473,
+            "y": 402,
+            "clientId": 928164427756
         }
     ]
 }
