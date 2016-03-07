@@ -96,8 +96,16 @@ function slicer(){
 				var wordsInTile = parseInt((Math.random()*1000)%3);
 				var magnetText = "";
 				while (wordsInTile > 0) {
-					magnetText += chunkWords[chunkIndex++]+" ";
-					wordsInTile--;
+					if (!chunkWords[chunkIndex]) {wordsInTile = 0}
+						else {
+					if (chunkWords[chunkIndex] != " ") {
+						if (magnetText != "") {chunkWords[chunkIndex] = chunkWords[chunkIndex].toLowerCase();}
+						magnetText += chunkWords[chunkIndex++]+" ";
+						wordsInTile--;
+					} else {
+						chunkIndex++;
+					}
+				}
 				}
 				if (magnetText != "") {
 					words.push(magnetText);
