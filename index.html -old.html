@@ -7,27 +7,27 @@
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body class="navigation-is-open">
-    <div id="fridge">
-        <!-- user generated poetry here! -->
-    </div>
-    <!-- message board -->
-    <div id="message-board">
-        <ul class="messages"></ul>
-    </div>
-    <!-- cursor container -->
+<body class="navigation-is-open" onload=setup()>
     <div id="cursors">
         <!-- cursors created by js -->
     </div>
-    <!-- dashboard -->
+    <div id="fridge">
+        <!-- user generated poetry here! -->
+    </div>
     <div id="dashboard">
         <div id="title">
             <h1>po.et/ry</h1>
         </div>
+        <!-- <div id="toolbar">
+            <p id="username">RobertFrosty</p>
+            <i class="material-icons">info_outline</i>
+            <i class="material-icons">history</i>
+        </div> -->
         <div id="wordbank">
             <!-- words created by js -->
         </div>
     </div>
+
     <!-- menu toggle icon -->
     <a href="#nav" class="nav-trigger">Menu 
         <span class="nav-icon"></span>
@@ -35,18 +35,18 @@
             <circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
         </svg>
     </a>
-    <!-- login page -->
-    <div id="login-page">
-        <div class="form">
-            <h3 class="title">What's your pen name?</h3>
-            <input class="username-input" type="text" maxlength="14" autofocus/>
-            <p id="anonymous">Proceed anonymously...</p>
-        </div>
-    </div>
 
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="http://localhost:4444/socket.io/socket.io.js"></script>
+    <!--    NOOOOOOOO!!!!!!!!!!!!  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> --> 
     <script src="js/client.js"></script>
+    <script>
+    function setup(){
+        var socket = io();
+        socket.emit('sign-on');
+        socket.emit('gimme-words');
+    }
+    </script>
 </body>
 </html>

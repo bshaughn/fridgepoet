@@ -9,7 +9,15 @@ function wordChunkLoader() {
   		if (err) throw err;
 
   	    word_chunks = data.split('\n\n');
-  	    console.log("Loaded word chunks :)"+word_chunks.length);
+  	    console.log("Loaded Ulysses chunks :)"+word_chunks.length);
+	});
+
+	fs.readFile('./Kama_Sutra', 'utf8', (err, data) => {
+  		if (err) throw err;
+
+  	    //word_chunks = data.split('\n\n');
+  	    word_chunks.push(data.split('\n\n'));
+  	    console.log("Loaded Kama Sutra chunks :)"+word_chunks.length);
 	});
 }
 

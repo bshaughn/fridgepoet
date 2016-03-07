@@ -6,23 +6,59 @@ body {
 	width: 100vw;
 	height: 100vh;
 	margin: 0;
+	font-family: "Vollkorn",serif;
 }
-.word { 
-	float: left;
-	font-family: 'Vollkorn', serif;
-	width: auto;
-	height: auto;
-	padding: 5px;
-	margin: 5px;
-	font-size: 1em;
-	background-color:#ffffff;
-	color: #1d1d1d; border:1px solid #1d1d1d;
-	line-height: 0; cursor: grab;
+
+/*login page*/
+
+#login-page {
+	position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow: hidden;
+    /*background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+    background-color: #745463;
+    z-index:102;
 }
-.dragging {
-	cursor: grabbing;
-	box-shadow: 0 0 1em rgba(0,0,0,.5);
+#login-page .form {
+    height: 180px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    width: 100%;
 }
+#login-page .title, #login-page .usernameInput {
+    font-size: 36px;
+	color: #986b6e;
+	margin:10px;
+}
+#login-page .form .username-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #986b6e;
+    outline: none;
+    text-align: center;
+    width: 400px;
+    font-family: "Vollkorn",serif;
+    font-size: 36px;
+	color: #fcfcfc;
+}
+#login-page .form #anonymous {
+    font-size: 1em;
+	color: #986b6e;
+	cursor:pointer;
+}
+
+/*main view*/
+
 #fridge {
     position: absolute;
     left: 0px;
@@ -31,6 +67,74 @@ body {
     height: 100%;
     overflow-y: auto;
     overflow: hidden;
+    background-color: #f6f6f6;    
+}
+#fridge::before {
+    content: "";
+    opacity: .5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+	background: url('../images/fridge_texture.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.word { 
+	float: left;
+	width: auto;
+	height: auto;
+	padding: 5px;
+	margin: 5px;
+	font-size: 1em;
+	background-color:#f6f6f6;
+	color: #4a3d5c;
+	border:1px solid #4a3d5c;
+	line-height: 0;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+.word.new {
+	background-color:#745463;
+	color: #f6f6f6; /*#986b6e*/
+	border:1px solid #986b6e;
+}
+.dragging {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing;
+	box-shadow: 0 0 1em #4a3d5c;
+}
+
+/*message board*/
+
+#message-board {
+	width:400px;
+	height:auto;
+	position:fixed;
+	right:20px;
+	bottom:20px;
+}
+ul.messages {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+ul.messages li.message {
+	list-style: none;
+	width:100%;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	font-size: 1em;
+	color: #986b6e;
+}
+ul.messages li.message span {
+	color: #90a686;
 }
 
 /*menu icon*/
@@ -42,7 +146,7 @@ body {
 	top: 20px;
 	height: 54px;
 	width: 54px;
-	background-color: #1d1d1d;
+	background-color: #90a686;
 	border-radius: 50%;
 	/* image replacement */
 	overflow: hidden;
@@ -66,7 +170,7 @@ body {
 	transform: translateX(-50%) translateY(-50%);
 	width: 22px;
 	height: 2px;
-	background-color: #ffffff;
+	background-color: #f6f6f6;
 }
 .nav-trigger .nav-icon::before, .nav-trigger .nav-icon:after {
 	/* upper and lower lines of the menu icon */
@@ -176,7 +280,7 @@ body {
 	position:relative;
 	width:325px;
 	height:100%;
-	background-color:#1d1d1d;
+	background-color:#745463;
 	-webkit-box-shadow: 4px 0px 10px 2px rgba(0,0,0,0.25);
 	-moz-box-shadow: 4px 0px 10px 2px rgba(0,0,0,0.25);
 	box-shadow: 4px 0px 10px 2px rgba(0,0,0,0.25);
@@ -202,7 +306,7 @@ body {
 	position:relative;
 	width:325px;
 	height:100%;
-	background-color:#1d1d1d;
+	background-color:#745463;
 	-webkit-transform: translateX(-100%);
 	-moz-transform: translateX(-100%);
 	-ms-transform: translateX(-100%);
@@ -216,8 +320,8 @@ body {
 #title {
 	width: 100%;
 	text-align: right;
-	background-color: #1D1D1D;
-	border-bottom: 2px solid rgb(255, 255, 255);
+	background-color: #745463;
+	border-bottom: 2px solid #986b6e;
 	height: 96px;
 }
 #title h1 {
@@ -225,14 +329,13 @@ body {
 	padding-right: 20px;
 	line-height: 84px;
 	font-size: 36px;
-	font-family: "Vollkorn",serif;
-	color: #FFF;
+	color: #986b6e;
 }
 #toolbar {
 	width:100%;
 	height:50px;
-	background-color:#1d1d1d;
-	border-bottom:2px solid #ffffff;
+	background-color:#4a3d5c;
+	border-bottom:2px solid #f6f6f6;
 	text-align: right;
 }
 #toolbar .material-icons {
@@ -242,7 +345,6 @@ body {
 }
 #toolbar #username {
 	color: #FFF;
-	font-family: 'Vollkorn', serif;
 	float: left;
 	padding-left: 10px;
 }
@@ -267,6 +369,17 @@ body {
 	-ms-background-size:18px 18px;
 	-moz-background-size:18px 18px;
 	background-size:18px 18px;
+	z-index:101;
+}
+#cursors .cursor.cursor-dragging{
+	position:absolute;
+	width:16px;
+	height:15px;
+	background:url('../images/dragging.png') no-repeat 0 0;
+	-webkit-background-size:16px 15px;
+	-ms-background-size:16px 15px;
+	-moz-background-size:16px 15px;
+	background-size:16px 15px;
 	z-index:101;
 }
 
@@ -306,4 +419,66 @@ body {
 .zoomIn {
     -webkit-animation-name: zoomIn;
     animation-name: zoomIn;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,100%,0);
+        transform: translate3d(0,100%,0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,100%,0);
+        transform: translate3d(0,100%,0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0);
+    }
+}
+
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
 }
