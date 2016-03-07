@@ -27,18 +27,18 @@
         {
             "guid": 123456788,
             "word": "me",
-            "x": 376.9666748046875,
-            "y": 275,
-            "clientId": 850141931725,
-            "username": "pirate"
+            "x": 116.953125,
+            "y": 300,
+            "clientId": 1341508383540,
+            "username": "doctorFace"
         },
         {
             "guid": 123456787,
             "word": "melatto",
-            "x": 459,
-            "y": 392,
-            "clientId": 850141931725,
-            "username": "pirate"
+            "x": 242,
+            "y": 417,
+            "clientId": 995996009422,
+            "username": "SoWhat"
         },
         {
             "guid": 123456786,
@@ -67,10 +67,10 @@
         {
             "guid": 123456783,
             "word": "all",
-            "x": 419.9666748046875,
-            "y": 557,
-            "clientId": 1162306225334,
-            "username": "ryan"
+            "x": 565.953125,
+            "y": 275,
+            "clientId": 995996009422,
+            "username": "SoWhat"
         },
         {
             "guid": 123456782,
@@ -91,10 +91,10 @@
         {
             "guid": 347444566,
             "word": "hagboat",
-            "x": 659.9666748046875,
-            "y": 212,
-            "clientId": 1255756551148,
-            "username": "anonymous"
+            "x": 242.953125,
+            "y": 231,
+            "clientId": 995996009422,
+            "username": "SoWhat"
         },
         {
             "guid": 709152260,
@@ -107,34 +107,34 @@
         {
             "guid": 684873419,
             "word": "viperlike",
-            "x": 419.9666748046875,
-            "y": 513,
-            "clientId": 1162306225334,
-            "username": "ryan"
+            "x": 233,
+            "y": 461,
+            "clientId": 1341508383540,
+            "username": "doctorFace"
         },
         {
             "guid": 812706909,
             "word": "cellophane",
-            "x": 525,
-            "y": 392,
-            "clientId": 850141931725,
-            "username": "pirate"
+            "x": 203,
+            "y": 501,
+            "clientId": 1341508383540,
+            "username": "doctorFace"
         },
         {
             "guid": 808331228,
             "word": "blubberous",
-            "x": 493.9666748046875,
-            "y": 513,
-            "clientId": 1162306225334,
-            "username": "ryan"
+            "x": 200,
+            "y": 461,
+            "clientId": 1341508383540,
+            "username": "doctorFace"
         },
         {
             "guid": 22842022,
             "word": "swinehood",
-            "x": 572.9666748046875,
-            "y": 211,
-            "clientId": 1255756551148,
-            "username": "anonymous"
+            "x": 222.953125,
+            "y": 231,
+            "clientId": 995996009422,
+            "username": "SoWhat"
         }
     ]
 }
