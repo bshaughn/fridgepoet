@@ -23,16 +23,11 @@ jQuery(document).ready(function($){
     var lastEmit = $.now();
     var prev = {};
 
-    socket.on('heres-your-words', function (data) {
-        //console.log("called heres-your-words");
-        //testwordbank = data;
-        console.log("test word bank: " + data);
-        console.log("number of words: " + data.length);
-        populateWordBank(data);
-    });
-
     //state of menu animation
     var isLateralNavAnimating = false;
+
+    //VW
+    var viewportWidth = $(window).width();
 
     //login page background images
     // var images = ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg'];
@@ -52,58 +47,29 @@ jQuery(document).ready(function($){
 
     //CLIENT EVENTS
 
-    //build DOM using word data from server
+    //build fridge view using word data from server
     socket.on('word_data', function (data) {
         for (var i=0; i<=data.words.length-1; i++) {
             $('#fridge').append('<div id="'+data.words[i].guid+'" class="word" style="position: absolute; left:'+data.words[i].x+'px; top: '+data.words[i].y+'px;"><p>'+data.words[i].word+'</p></div>');
         }
     });
 
-    //create our wordbank words, this will eventually pull from Bart's dictionary
-    /*
-    wordcount = 25;
-    for (var i=0; i<=wordcount; i++) {
-        
-        (function(index){
-            $.ajax({
-                type: "GET",
-                url: "http://randomword.setgetgo.com/get.php",
-                crossDomain: true,
-                dataType: "jsonp",
-                success: function (data, status) {
-                    $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+data.Word+'</p></div>');
-                },
-                error: function (xOptions, textStatus) {
-                    alert(textStatus);
-                }
-            });
-        })(i);
-        
-    }
-    */
-
+    //populate the wordbank
     function populateWordBank(words) {
-    //create our wordbank words
-    wordcount = 25;
-    //wordcount = 4; //just for testing
-    for (var i=0; i<=wordcount; i++) {
-
-        //replace with Gutenberg slicer
-
-        //$('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>FaceBlaster</p></div>');
-
-        $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
+        wordcount = 30;
+        for (var i=0; i<=wordcount; i++) {
+            $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
+        }
+        makeAbsolute();
+        bindEvents();
     }
-}
 
-
-    //after words are rendered, make them draggable objects
-    setTimeout(function(){
+    //a reusable function for binding drag events
+    function bindEvents() {
         bindDrag();
         bindDragStart();
         bindDrop();
-        makeAbsolute();
-    }, 2000);
+    }
 
     //dragstart handler
     function bindDragStart() {
@@ -120,6 +86,7 @@ jQuery(document).ready(function($){
             drag: function (event, ui) {
                 var guid = $(this).attr("id");
                 var word = $(this).text();
+                word = word.replace(/ /g, '&nbsp')
                 var pos = $(this).position();
                 //on drag, emit data to server
                 if ($.now() - lastEmit > 30){
@@ -205,7 +172,6 @@ jQuery(document).ready(function($){
 
     //create participants message
     function participants(data) {
-        console.log(data);
         var message = '';
         if (data.numUsers === 1) {
             message += "there's 1 poet";
@@ -256,6 +222,7 @@ jQuery(document).ready(function($){
             $loginPage.fadeOut();
             $loginPage.off('click');
             socket.emit('add user', username, clientId);
+            $('body').removeClass('overflow-hidden');
         } else if (username == '') {
             alert('enter a pen name you dingus!');
         }
@@ -288,10 +255,11 @@ jQuery(document).ready(function($){
         }
     });
 
+    //set wordbank words' position to absolute
     function makeAbsolute(){
         //get the offset of each word...
         $("#wordbank .word").each(function() {
-            var thisPos = $(this).offset();
+            var thisPos = $(this).position();
             $(this).css({"left":thisPos.left, "top":thisPos.top});
         });
         //and then give them an absolute position
@@ -299,15 +267,25 @@ jQuery(document).ready(function($){
         $("#wordbank .word").css({"position": "absolute"});
     }
 
+    //set wordbank words' position to absolute
     function makeRelative(){
         //get the offset of each word...
         $("#wordbank .word").each(function() {
-            var thisPos = $(this).offset();
             $(this).css({"left":"", "top":"", "position": "relative"});
         });
     }
+    
+    //hide the wordbank initially on mobile
+    if (viewportWidth <= 768) {
+        $('body').removeClass('navigation-is-open');
+    }
 
     //SERVER EVENTS
+
+    //populate wordbank when server sends words
+    socket.on('wordbank-words', function (data) {
+        populateWordBank(data);
+    });
 
     //update cursor positions when server provides data
     socket.on('mousemoving', function (data) {
@@ -349,16 +327,14 @@ jQuery(document).ready(function($){
         //log a message
         log(data.username, ' introduced word: '+ data.word);
         //bind drag events to new word
-        bindDrag();
-        bindDragStart();
-        bindDrop();
+        bindEvents();
     });
 
     //when another client completes a drag...
     socket.on('drag_complete', function (data) {
         //log a message
         log(data.username, ' moved word: '+ data.word);
-        //and remove 
+        //and remove dragging class
         var thisWord = $("#fridge").find("#" + data.guid);
         thisWord.removeClass('dragging'); 
     });

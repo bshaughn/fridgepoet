@@ -5,9 +5,8 @@
     <title>Fridge Poetry</title>
     <link href='css/style.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body class="navigation-is-open">
+<body class="navigation-is-open overflow-hidden">
     <div id="fridge">
         <!-- user generated poetry here! -->
     </div>
@@ -26,6 +25,9 @@
         </div>
         <div id="wordbank">
             <!-- words created by js -->
+        </div>
+        <div id="colophon">
+            <p>Another thing by <a href="http://ryanabraham.net">Ryan Abraham</a> and <a href="https://github.com/bshaughn/">Bart Shaughnessy</a></p>
         </div>
     </div>
     <!-- menu toggle icon -->
@@ -46,6 +48,7 @@
 
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui-touchpunch.min.js"></script>
     <script src="http://localhost:4444/socket.io/socket.io.js"></script>
     <script src="js/client.js"></script>
 </body>

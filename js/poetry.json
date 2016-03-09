@@ -27,18 +27,10 @@
         {
             "guid": 123456788,
             "word": "me",
-            "x": 116.953125,
-            "y": 300,
-            "clientId": 1341508383540,
-            "username": "doctorFace"
-        },
-        {
-            "guid": 123456787,
-            "word": "melatto",
-            "x": 242,
-            "y": 417,
-            "clientId": 995996009422,
-            "username": "SoWhat"
+            "x": 701.9500122070312,
+            "y": 248,
+            "clientId": 789064514321,
+            "username": "ryan"
         },
         {
             "guid": 123456786,
@@ -51,18 +43,18 @@
         {
             "guid": 123456785,
             "word": "pretzels",
-            "x": 470.95001220703125,
+            "x": 562.9499969482422,
             "y": 127,
-            "clientId": 850141931725,
-            "username": "pirate"
+            "clientId": 1031419884115,
+            "username": "ryan"
         },
         {
             "guid": 123456784,
             "word": "is",
-            "x": 496,
-            "y": 25,
-            "clientId": 850141931725,
-            "username": "pirate"
+            "x": 538.9499969482422,
+            "y": 127,
+            "clientId": 1031419884115,
+            "username": "ryan"
         },
         {
             "guid": 123456783,
@@ -91,10 +83,10 @@
         {
             "guid": 347444566,
             "word": "hagboat",
-            "x": 242.953125,
-            "y": 231,
-            "clientId": 995996009422,
-            "username": "SoWhat"
+            "x": 620.9666748046875,
+            "y": 262,
+            "clientId": 789064514321,
+            "username": "ryan"
         },
         {
             "guid": 709152260,
@@ -107,41 +99,169 @@
         {
             "guid": 684873419,
             "word": "viperlike",
-            "x": 233,
-            "y": 461,
-            "clientId": 1341508383540,
-            "username": "doctorFace"
-        },
-        {
-            "guid": 812706909,
-            "word": "cellophane",
-            "x": 203,
-            "y": 501,
-            "clientId": 1341508383540,
-            "username": "doctorFace"
+            "x": 532,
+            "y": 378,
+            "clientId": 1366199750748,
+            "username": "Poet"
         },
         {
             "guid": 808331228,
             "word": "blubberous",
-            "x": 200,
-            "y": 461,
-            "clientId": 1341508383540,
-            "username": "doctorFace"
+            "x": 792.46875,
+            "y": 193,
+            "clientId": 231855180342,
+            "username": "ryan"
         },
         {
             "guid": 22842022,
             "word": "swinehood",
-            "x": 222.953125,
-            "y": 231,
-            "clientId": 995996009422,
-            "username": "SoWhat"
+            "x": 474.9499969482422,
+            "y": 171,
+            "clientId": 1408342579863,
+            "username": "ryan"
         },
         {
             "guid": 832458747,
             "word": "she did ",
-            "x": 355.734375,
-            "y": 153,
-            "clientId": 702943996742,
+            "x": 476.9499969482422,
+            "y": 127,
+            "clientId": 1031419884115,
+            "username": "ryan"
+        },
+        {
+            "guid": 72803505,
+            "word": "fork? ",
+            "x": 698.9500122070312,
+            "y": 127,
+            "clientId": 1067163551455,
+            "username": "anonymous"
+        },
+        {
+            "guid": 511191820,
+            "word": "have pulled ",
+            "x": 346.265625,
+            "y": 217,
+            "clientId": 1156794419867,
+            "username": "s"
+        },
+        {
+            "guid": 75230994,
+            "word": "whatever you ",
+            "x": 336.453125,
+            "y": 394,
+            "clientId": 434443354346,
+            "username": "s"
+        },
+        {
+            "guid": 483628587,
+            "word": "your\nbrother works ",
+            "x": 287.46875,
+            "y": 95,
+            "clientId": 434443354346,
+            "username": "s"
+        },
+        {
+            "guid": 809183566,
+            "word": "castle where ",
+            "x": 690.328125,
+            "y": 487,
+            "clientId": 434443354346,
+            "username": "s"
+        },
+        {
+            "guid": 794615997,
+            "word": "on\nWhat improvements ",
+            "x": 385,
+            "y": 304,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 535645965,
+            "word": "10 tooth\nrake ",
+            "x": 344,
+            "y": 328,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 781748224,
+            "word": "and gentleman's ",
+            "x": 0,
+            "y": 194,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 426872381,
+            "word": "sheltered by ",
+            "x": 129,
+            "y": 194,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 424849022,
+            "word": "dovecote a ",
+            "x": 129,
+            "y": 150,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 224412098,
+            "word": "grindstone\nclodcrusher ",
+            "x": 53.296875,
+            "y": 96,
+            "clientId": 1300700962073,
+            "username": "s"
+        },
+        {
+            "guid": 729109065,
+            "word": "taking\nthe waterproof ",
+            "x": 385,
+            "y": 429,
+            "clientId": 1125821129659,
+            "username": "s"
+        },
+        {
+            "guid": 407990986,
+            "word": "identities\nVisually stephen's ",
+            "x": 75.46875,
+            "y": 139,
+            "clientId": 1314548749596,
+            "username": "s"
+        },
+        {
+            "guid": 824070217,
+            "word": "Lentulus romanus ",
+            "x": 332.9375,
+            "y": 171,
+            "clientId": 1314548749596,
+            "username": "s"
+        },
+        {
+            "guid": 848286011,
+            "word": "of fanaticism\nhypnotic ",
+            "x": 445.953125,
+            "y": 363,
+            "clientId": 1314548749596,
+            "username": "s"
+        },
+        {
+            "guid": 635369425,
+            "word": "these mental ",
+            "x": 315.953125,
+            "y": 469,
+            "clientId": 1314548749596,
+            "username": "s"
+        },
+        {
+            "guid": 550954315,
+            "word": "second part\nwith ",
+            "x": 278.953125,
+            "y": 275,
+            "clientId": 1314548749596,
             "username": "s"
         }
     ]

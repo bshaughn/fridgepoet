@@ -4,11 +4,6 @@ var app = require('http').createServer(handler),
     fs = require('fs'),
     static = require('node-static'); // for serving files
 
-var slicer = require('./gutenberg_slicer.js').g_slicer;
-var loadWordChunks = require('./gutenberg_slicer.js').loadWordChunks;
-
-loadWordChunks();
-
 // This will make all the files in the current folder accessible from the web
 var fileServer = new static.Server('./');
 
@@ -28,19 +23,28 @@ function handler (request, response) {
 //delete this row if you want to see debug messages
 //io.set('log level', 1);
 
+//include our word slicer
+var slicer = require('./js/gutenberg_slicer.js').g_slicer;
+var loadWordChunks = require('./js/gutenberg_slicer.js').loadWordChunks;
+loadWordChunks();
+
 //include our wordData JSON
 //var jsonFile = "/Users/rabraham/Documents/Ryan/sites/tests/FridgePoetryTest/js/poetry.json"
-var jsonFile = "/Users/bartshaughnessy/fridgepoet/js/poetry.json"
+//var jsonFile = "/Users/rabraham/Documents/Ryan/sites/tests/FridgePoetryTest/github/fridgepoet/js/poetry.json"
+var jsonFile = "./js/poetry.json"
 var wordData = require(jsonFile);
 //number of current users
 var numUsers = 0;
 
 //Listen for incoming connections from clients
 io.on('connection', function (socket) {
+    //send word data to new clients
+    socket.emit('word_data', wordData);
+
+    //send wordbank words to new clients
+    socket.emit('wordbank-words', slicer());
+    
     var addedUser = false;
-
-   // socket.emit('heres-your-words', slicer());
-
     //when the client emits username
     socket.on('add user', function(username, clientId) {
         if (addedUser) return;
@@ -50,16 +54,12 @@ io.on('connection', function (socket) {
         ++numUsers;
         addedUser = true;
         socket.emit('login', {numUsers: numUsers});
-        socket.emit('heres-your-words', slicer());
         //broadcast to all clients that new user has connected
         socket.broadcast.emit('user joined', {
             username: socket.username,
             numUsers: numUsers
         });
     });
-
-    //send word data to new clients
-    socket.emit('word_data', wordData);
 
     //start listening for mouse move events
     socket.on('mousemove', function (data) {
@@ -105,7 +105,6 @@ io.on('connection', function (socket) {
 
     //when a user completes a drag event...
     socket.on('dragstop', function (data) {
-        console.log(data);
         //broadcast to clients
         socket.broadcast.emit('drag_complete', data);
         //and write new word to JSON
@@ -115,7 +114,7 @@ io.on('connection', function (socket) {
     socket.on('disconnect', function() {
         if (addedUser) {
             --numUsers;
-            // echo globally that this client has left
+            //broadcast that this client has left
             socket.broadcast.emit('user left', {
                 username: socket.username,
                 clientId: socket.clientId,

@@ -3,22 +3,26 @@
 	box-sizing: border-box;
 }
 body {
-	width: 100vw;
-	height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:2880px;
+    height: 1800px;
 	margin: 0;
 	font-family: "Vollkorn",serif;
+}
+.overflow-hidden {
+    overflow: hidden;
 }
 
 /*login page*/
 
 #login-page {
-	position: absolute;
+	position: fixed;
     left: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    overflow: hidden;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
     /*background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -65,11 +69,9 @@ body {
     bottom: 0px;
     width: 100%;
     height: 100%;
-    overflow-y: auto;
-    overflow: hidden;
     background-color: #f6f6f6;    
 }
-#fridge::before {
+/*#fridge::before {
     content: "";
     opacity: .5;
     top: 0;
@@ -82,7 +84,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
+}*/
 .word { 
 	float: left;
 	width: auto;
@@ -108,6 +110,31 @@ body {
     cursor: -moz-grabbing;
     cursor: grabbing;
 	box-shadow: 0 0 1em #4a3d5c;
+}
+#cursors{
+    position:relative;
+}
+#cursors .cursor{
+    position:absolute;
+    width:15px;
+    height:22px;
+    background:url('../images/pointer.png') no-repeat -4px 0;
+    -webkit-background-size:18px 18px;
+    -ms-background-size:18px 18px;
+    -moz-background-size:18px 18px;
+    background-size:18px 18px;
+    z-index:101;
+}
+#cursors .cursor.cursor-dragging{
+    position:absolute;
+    width:16px;
+    height:15px;
+    background:url('../images/dragging.png') no-repeat 0 0;
+    -webkit-background-size:16px 15px;
+    -ms-background-size:16px 15px;
+    -moz-background-size:16px 15px;
+    background-size:16px 15px;
+    z-index:101;
 }
 
 /*message board*/
@@ -277,9 +304,9 @@ ul.messages li.message span {
 /*dashboard components*/
 
 .navigation-is-open #dashboard {
-	position:relative;
+	position:fixed;
 	width:325px;
-	height:100%;
+	height:100vh;
 	background-color:#745463;
 	-webkit-box-shadow: 4px 0px 10px 2px rgba(0,0,0,0.25);
 	-moz-box-shadow: 4px 0px 10px 2px rgba(0,0,0,0.25);
@@ -303,7 +330,7 @@ ul.messages li.message span {
 	transition-timing-function: ease-in;
 }
 #dashboard {
-	position:relative;
+	position:fixed;
 	width:325px;
 	height:100%;
 	background-color:#745463;
@@ -331,56 +358,95 @@ ul.messages li.message span {
 	font-size: 36px;
 	color: #986b6e;
 }
-#toolbar {
-	width:100%;
-	height:50px;
-	background-color:#4a3d5c;
-	border-bottom:2px solid #f6f6f6;
-	text-align: right;
-}
-#toolbar .material-icons {
-	color: #FFF;
-	font-size: 30px;
-	padding: 10px;
-}
-#toolbar #username {
-	color: #FFF;
-	float: left;
-	padding-left: 10px;
-}
 #wordbank {
 	width:100%;
 	height:auto;
 	min-height: 500px;
 }
-
-/*dashboard components*/
-
-#cursors{
-	position:relative;
+#colophon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width:100%;
+    height:50px;
+    text-align: center;
+    color:#986b6e;
+    font-size:.75em;
+}
+#colophon p {
+    line-height: 50px;
+    margin:0;
+}
+#colophon a {
+    color:#986b6e;
+    text-decoration: none;
 }
 
-#cursors .cursor{
-	position:absolute;
-	width:15px;
-	height:22px;
-	background:url('../images/pointer.png') no-repeat -4px 0;
-	-webkit-background-size:18px 18px;
-	-ms-background-size:18px 18px;
-	-moz-background-size:18px 18px;
-	background-size:18px 18px;
-	z-index:101;
-}
-#cursors .cursor.cursor-dragging{
-	position:absolute;
-	width:16px;
-	height:15px;
-	background:url('../images/dragging.png') no-repeat 0 0;
-	-webkit-background-size:16px 15px;
-	-ms-background-size:16px 15px;
-	-moz-background-size:16px 15px;
-	background-size:16px 15px;
-	z-index:101;
+/*media queries*/
+@media screen and (max-width: 768px) {
+    #login-page .title, #login-page .usernameInput {
+        font-size: 24px;
+    }
+    #login-page .form .username-input {
+        width:85%;
+        font-size: 24px;
+    }
+    .navigation-is-open #dashboard {
+        position:fixed;
+        left:0;
+        bottom: 0;
+        width:100%;
+        height:50%;
+        padding:5px;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: -webkit-transform 0.5s;
+        -moz-transition: -moz-transform 0.5s;
+        transition: transform 0.5s;
+        transition-timing-function: ease-in;
+        overflow-y:scroll;
+    }
+    #dashboard {
+        position:fixed;
+        left:0;
+        bottom: 0;
+        width:100%;
+        height:50%;
+        padding:5px;
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: -webkit-transform 0.5s;
+        -moz-transition: -moz-transform 0.5s;
+        transition: transform 0.5s;
+        transition-timing-function: ease-in;
+    }
+    #title {
+        display:none;
+    }
+    #colophon {
+        position: relative;
+    }
+    #message-board {
+        width:100%;
+        height:auto;
+        position:fixed;
+        left:0;
+        bottom:20px;
+    }
 }
 
 /*animations*/

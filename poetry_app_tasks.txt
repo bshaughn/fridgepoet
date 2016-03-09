@@ -1,0 +1,71 @@
+poetry app tasks
+
+    Minimal Viable Product
+        //make dashboard ui
+        //program "fly-out" functionality
+        //program words to change parent container on drag
+        //make fridge "droppable"
+        //program socket io functionality
+            //create cursor functionality
+            //give all words unique random id
+            //build a JSON file to store all word objects, their positions, move history, etc
+            //write JS get JSON contents and render to the "fridge"
+            //update position JSON on drag
+            //if user drags word from their wordbank to their fridge, create that word in JSON and broadcast to all clients
+            //make sure new word is created only once and allow for additional words to be introduced
+            //change cursor to grabbing glove if another user is dragging
+            //pull wordbank words from Bart's slicer
+            //give moving words 'dragging' class style
+            //save word positions / history with JSON or SQL?
+            //write username to word JSON
+            //user system
+            //login screen
+                //use images from this carousel and more https://css-tricks.com/creating-responsive-touch-friendly-carousels-with-flickity/
+                //type username or proceed anonymously
+        //broadcast activity to clients
+        //add style
+        //create mobile UI
+        import Jquery UI touch patch
+        import more text sources, maybe "The Raven"
+
+    Getting it online!
+        buy domain of our choosing
+        follow the instructions here: https://www.youtube.com/watch?v=WxhFq64FQzA to set up an Amazon EC2 instance with node
+        migrate the app to Amazon
+        user/stress testing
+        point domain to EC2 instance, test
+        SHARE!!!!
+
+    Expansions / Goodies
+        right-click options:
+            delete word feature
+            program word definition functionality - AJAX dictionary api
+        
+        multiple fridges?
+            browse fridges?
+            create new fridge
+            public vs. private fridge
+            invite friends to join fridge
+            save fridge?
+        
+        share feature?
+        facebook "like" widget?
+        "like" other people's poems?
+        history or changelog?
+        message other users?
+
+        suggest on new words and vote on other users submissions?
+        See how many words you’ve placed that other people are using
+
+    Open Issues
+       // magnets with multiple words crash into each other on drag, hard-code HTML spaces between words, doing so in inspector confirms a fix
+	dragging magnet with 3 words causes text to smash together when it hits the word bin boundary
+        sometimes for unknown reasons, several messages are broadcasted/logged when a user moves a newly introduced word
+        "new word" and "moved" messages are logged when a new word is introduced. Should only show "new word" message
+        sometimes if a user refreshes the page their old cursor isn't deleted from other users' fridge but a new one is created
+	slicer sometimes returns “undefined”
+	slicer - remove proper Nouns?
+	slicer - capitalization
+
+    Always
+        REFACTOR + IMPROVE
