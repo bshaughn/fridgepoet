@@ -56,8 +56,8 @@ jQuery(document).ready(function($){
 
     //populate the wordbank
     function populateWordBank(words) {
-        wordcount = 30;
-        for (var i=0; i<=wordcount; i++) {
+        wordcount = 25;
+        for (var i=0; i<wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
         }
         makeAbsolute();
@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
     }
 
     //a reusable function for binding drag events
-    function bindEvents() {
+    function bindEvents(tile) {
         bindDrag();
         bindDragStart();
         bindDrop();

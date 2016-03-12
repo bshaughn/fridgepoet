@@ -63,9 +63,11 @@ poetry app tasks
         sometimes for unknown reasons, several messages are broadcasted/logged when a user moves a newly introduced word
         "new word" and "moved" messages are logged when a new word is introduced. Should only show "new word" message
         sometimes if a user refreshes the page their old cursor isn't deleted from other users' fridge but a new one is created
-	slicer sometimes returns “undefined”
+	//slicer sometimes returns “undefined”
+       ->fixed! It was a matter of making sure the client only looks for 25 words :)
 	slicer - remove proper Nouns?
-	slicer - capitalization
+	//slicer - capitalization
+       ->fixed! Removing line breaks in a word chunk fixed this and also the word-crunch-on-drag issue
 
     Always
         REFACTOR + IMPROVE
