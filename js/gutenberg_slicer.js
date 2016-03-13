@@ -13,18 +13,21 @@ function wordChunkLoader() {
         var name = dir+'/'+files[i];
         //console.log(name)
         if (!fs.statSync(name).isDirectory() && name.substr(name.length-3, 3)=="txt"){
+          //console.log(name)
             //fileList.push(name);
 
         fs.readFile(name, 'utf8', (err, data) => {
           if (err) throw err;
           word_chunks = word_chunks.concat(data.split('\n\n'));
           //console.log("Loaded " + name + " chunks :)"+word_chunks.length);
+        
         });
 
         }
 
-        console.log("Finished loading word chunks from Library")
+        
       }
+      console.log("Finished loading word chunks");
     }
 
   //console.log(fileList)
@@ -41,7 +44,7 @@ function wordChunkLoader() {
  //  	    word_chunks = word_chunks.concat(data.split('\n\n'));
  //  	    console.log("Loaded Grimm Chunks :)"+word_chunks.length);
 	// });
-}
+//}
 
 function slicer(){
    //var words = ["one", "two", "three", "four", "five"];
@@ -67,7 +70,7 @@ function slicer(){
 			while (chunkIndex<chunkWords.length-3) {
 				var wordsInTile = parseInt((Math.random()*1000)%3);
 				var magnetText = "";
-				while (wordsInTile > 0) {
+				while (wordsInTile >= 0) {
 					if (!chunkWords[chunkIndex]) {
                         wordsInTile = 0
                     } else {
