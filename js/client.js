@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
     //VARS
 
     //socket port
-    var url = 'http://localhost:4444';
+    var url = 'http://ec2-52-53-207-223.us-west-1.compute.amazonaws.com:9000';
     
     //generate a unique client ID
     var clientId = Math.round($.now()*Math.random());
@@ -29,22 +29,6 @@ jQuery(document).ready(function($){
     //VW
     var viewportWidth = $(window).width();
 
-    //login page background images
-    // var images = ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg'];
-    // var $loginBg = $('#login-page');
-    // console.log($loginBg);
-    // var randomBg = images[Math.ceil(Math.random()*images.length-1)];
-    // console.log(randomBg);
-    // //assign one randomly
-    // $loginBg.css({
-    //     'background' : 'url(' + randomBg + ') no-repeat center center fixed',
-    //     '-webkit-background-size' : 'cover',
-    //     '-moz-background-size' : 'cover',
-    //     '-o-background-size' : 'cover',
-    //     'background-size' : 'cover',
-    //     'background-color' : '#745463'
-    // });
-
     //CLIENT EVENTS
 
     //build fridge view using word data from server
@@ -56,37 +40,43 @@ jQuery(document).ready(function($){
 
     //populate the wordbank
     function populateWordBank(words) {
-        wordcount = 25;
-        for (var i=0; i<wordcount; i++) {
+        wordcount = 30;
+        for (var i=0; i<=wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
         }
         makeAbsolute();
-        bindEvents();
+        var tile = $(".word");
+        bindEvents(tile);
     }
+
+    $('#refreshButton').on('click', function() {
+        $('#wordbank').empty();
+        socket.emit('refresh-wordbank');
+    });
 
     //a reusable function for binding drag events
     function bindEvents(tile) {
-        bindDrag();
-        bindDragStart();
-        bindDrop();
+        console.log(tile.text() + ' has been bound');
+        bindDrag(tile);
+        bindDragStart(tile);
+        bindDrop(tile);
     }
 
     //dragstart handler
-    function bindDragStart() {
-        $(".word").on("dragstart", function (event, ui) {
+    function bindDragStart(tile) {
+        tile.on("dragstart", function (event, ui) {
             $(this).addClass("dragging");
         });
     }
 
     //drag handler
-    function bindDrag() {
-        $(".word").draggable({
+    function bindDrag(tile) {
+        tile.draggable({
             snap: true,
             zIndex: 100,
             drag: function (event, ui) {
                 var guid = $(this).attr("id");
                 var word = $(this).text();
-                word = word.replace(/ /g, '&nbsp')
                 var pos = $(this).position();
                 //on drag, emit data to server
                 if ($.now() - lastEmit > 30){
@@ -106,8 +96,8 @@ jQuery(document).ready(function($){
     }
 
     //dragstop handler
-    function bindDrop() {
-        $(".word").on("dragstop", function (event, ui) {
+    function bindDrop(tile) {
+        tile.on("dragstop", function (event, ui) {
             $(this).removeClass("dragging");
             dragging = false;
             var guid = $(this).attr("id");
@@ -260,6 +250,7 @@ jQuery(document).ready(function($){
         //get the offset of each word...
         $("#wordbank .word").each(function() {
             var thisPos = $(this).position();
+            //var thisWidth = $(this).innerWidth();
             $(this).css({"left":thisPos.left, "top":thisPos.top});
         });
         //and then give them an absolute position
@@ -327,13 +318,17 @@ jQuery(document).ready(function($){
         //log a message
         log(data.username, ' introduced word: '+ data.word);
         //bind drag events to new word
-        bindEvents();
+        var tile = newWord;
+        bindEvents(tile);
     });
 
     //when another client completes a drag...
     socket.on('drag_complete', function (data) {
+        console.log('drag complete');
         //log a message
-        log(data.username, ' moved word: '+ data.word);
+        //setTimeout(function(){
+            log(data.username, ' moved word: '+ data.word);
+        //},10);
         //and remove dragging class
         var thisWord = $("#fridge").find("#" + data.guid);
         thisWord.removeClass('dragging'); 

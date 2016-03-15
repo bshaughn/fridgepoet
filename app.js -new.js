@@ -1,18 +1,19 @@
-//including libraries
+// Including libraries
 var app = require('http').createServer(handler),
     io = require('socket.io').listen(app),
     fs = require('fs'),
     static = require('node-static'); // for serving files
 
-//this will make all the files in the current folder accessible from the web
+// This will make all the files in the current folder accessible from the web
 var fileServer = new static.Server('./');
 
-//this is the port for our web server.
-app.listen(9000, function(){
-    console.log('listening on port 9000');
+// This is the port for our web server.
+// you will need to go to http://localhost:4444 to see it
+app.listen(4444, function(){
+    console.log('listening on *.4444');
 });
 
-//if the URL of the socket server is opened in a browser
+// If the URL of the socket server is opened in a browser
 function handler (request, response) {
     request.addListener('end', function () {
         fileServer.serve(request, response);
@@ -28,12 +29,14 @@ var loadWordChunks = require('./js/gutenberg_slicer.js').loadWordChunks;
 loadWordChunks();
 
 //include our wordData JSON
+//var jsonFile = "/Users/rabraham/Documents/Ryan/sites/tests/FridgePoetryTest/js/poetry.json"
+//var jsonFile = "/Users/rabraham/Documents/Ryan/sites/tests/FridgePoetryTest/github/fridgepoet/js/poetry.json"
 var jsonFile = "./js/poetry.json"
 var wordData = require(jsonFile);
 //number of current users
 var numUsers = 0;
 
-//listen for incoming connections from clients
+//Listen for incoming connections from clients
 io.on('connection', function (socket) {
     //send word data to new clients
     socket.emit('word_data', wordData);
