@@ -23,6 +23,7 @@ function wordChunkLoader() {
 }
 
 function slicer() {
+    console.log("Inside slicer");
     if (word_chunks.length == 0) {
         wordChunkLoader();
     }
@@ -55,10 +56,11 @@ function slicer() {
                             }
 
                             magnetText += ((chunkWords[chunkIndex++]).trim());
-                            wordsInTile--;
                             if (wordsInTile != 0){
                                 magnetText += '&nbsp';
                             }
+                            wordsInTile--;
+                            
                         } else {
                             chunkIndex++;
                         }

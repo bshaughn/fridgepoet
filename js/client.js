@@ -2,7 +2,8 @@ jQuery(document).ready(function($){
     //VARS
 
     //socket port
-    var url = 'http://ec2-52-53-207-223.us-west-1.compute.amazonaws.com:9000';
+    //var url = 'http://ec2-52-53-207-223.us-west-1.compute.amazonaws.com:9000';
+    var url = 'http://localhost:4444';
     
     //generate a unique client ID
     var clientId = Math.round($.now()*Math.random());
@@ -33,6 +34,9 @@ jQuery(document).ready(function($){
 
     //build fridge view using word data from server
     socket.on('word_data', function (data) {
+        if (data.words.length == 0) {
+            return;
+        } 
         for (var i=0; i<=data.words.length-1; i++) {
             $('#fridge').append('<div id="'+data.words[i].guid+'" class="word" style="position: absolute; left:'+data.words[i].x+'px; top: '+data.words[i].y+'px;"><p>'+data.words[i].word+'</p></div>');
         }
@@ -40,7 +44,10 @@ jQuery(document).ready(function($){
 
     //populate the wordbank
     function populateWordBank(words) {
-        wordcount = 30;
+
+        if (!words) {return;}
+
+        wordcount = 25;
         for (var i=0; i<=wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
         }
@@ -49,7 +56,8 @@ jQuery(document).ready(function($){
         bindEvents(tile);
     }
 
-    $('#refreshButton').on('click', function() {
+    $('#refresh-button').on('click', function() {
+        console.log("Clicked refresh button");
         $('#wordbank').empty();
         socket.emit('refresh-wordbank');
     });
@@ -275,6 +283,7 @@ jQuery(document).ready(function($){
 
     //populate wordbank when server sends words
     socket.on('wordbank-words', function (data) {
+        console.log("Got Words");
         populateWordBank(data);
     });
 

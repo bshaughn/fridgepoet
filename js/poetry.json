@@ -135,6 +135,150 @@
             "y": 127,
             "clientId": 1067163551455,
             "username": "anonymous"
+        },
+        {
+            "guid": 274265882,
+            "word": "Rose-red screamed and",
+            "x": 2806.734375,
+            "y": 272,
+            "clientId": 214749792050,
+            "username": "eric"
+        },
+        {
+            "guid": 970944102,
+            "word": "He got up",
+            "x": 85,
+            "y": 275,
+            "clientId": 214749792050,
+            "username": "eric"
+        },
+        {
+            "guid": 871506574,
+            "word": "up her horse",
+            "x": -10,
+            "y": 383,
+            "clientId": 436921324718,
+            "username": "eric"
+        },
+        {
+            "guid": 683292116,
+            "word": "asked me whether",
+            "x": 555,
+            "y": 294,
+            "clientId": 1431135190822,
+            "username": "eric"
+        },
+        {
+            "guid": 880472430,
+            "word": "evidently thinking of",
+            "x": 455.9375,
+            "y": 170,
+            "clientId": 1431135190822,
+            "username": "eric"
+        },
+        {
+            "guid": 685032830,
+            "word": "the dimensions",
+            "x": 537.953125,
+            "y": 230,
+            "clientId": 1431135190822,
+            "username": "eric"
+        },
+        {
+            "guid": 3638003,
+            "word": "wont you please",
+            "x": 1024.234375,
+            "y": 101,
+            "clientId": 552323479997,
+            "username": "eric"
+        },
+        {
+            "guid": 67805450,
+            "word": "Then he wanted",
+            "x": 687.328125,
+            "y": 400,
+            "clientId": 1058760142391,
+            "username": "eric"
+        },
+        {
+            "guid": 163810970,
+            "word": "little time",
+            "x": 303.03125,
+            "y": 462,
+            "clientId": 1058760142391,
+            "username": "eric"
+        },
+        {
+            "guid": 639687436,
+            "word": "birds sitting on",
+            "x": 544.40625,
+            "y": 515,
+            "clientId": 1058760142391,
+            "username": "eric"
+        },
+        {
+            "guid": 34934227,
+            "word": "room",
+            "x": 329.75,
+            "y": 219,
+            "clientId": 1389769130695,
+            "username": "eric"
+        },
+        {
+            "guid": 930922274,
+            "word": "when",
+            "x": 358.953125,
+            "y": 231,
+            "clientId": 1389769130695,
+            "username": "eric"
+        },
+        {
+            "guid": 347324527,
+            "word": "they",
+            "x": 918.9375,
+            "y": 200,
+            "clientId": 113551593585,
+            "username": "eric"
+        },
+        {
+            "guid": 199338041,
+            "word": "coming this",
+            "x": 387.9375,
+            "y": 113,
+            "clientId": 113551593585,
+            "username": "eric"
+        },
+        {
+            "guid": 65327534,
+            "word": "heart. oh,",
+            "x": 682.9375,
+            "y": 165,
+            "clientId": 404916601567,
+            "username": "eric"
+        },
+        {
+            "guid": 844622346,
+            "word": "rang deep",
+            "x": 691.9375,
+            "y": 151,
+            "clientId": 404916601567,
+            "username": "eric"
+        },
+        {
+            "guid": 176623124,
+            "word": "gait.",
+            "x": 312.875,
+            "y": 190,
+            "clientId": 430275192282,
+            "username": "eric"
+        },
+        {
+            "guid": 243679373,
+            "word": "morose, with lanky",
+            "x": 324.953125,
+            "y": 125,
+            "clientId": 430275192282,
+            "username": "eric"
         }
     ]
 }

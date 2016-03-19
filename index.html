@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"></meta>
     <meta name="description" content="Write and collaborate on poetry in realtime.">
-    <meta name="author" content="Ryan Abraham and Bart Shaughn">
+    <meta name="author" content="Ryan Abraham and Bart Shaughnessy">
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <title>Fridge Poetry</title>
     <link href='css/style.css' rel='stylesheet' type='text/css'>
@@ -26,13 +26,22 @@
         <div id="title">
             <h1>fridgepoe.ms</h1>
         </div>
-        <div id="wordbank">
+        <div>
+            <button type="button" id="refresh-button">Refresh</button>
+        </div>
+
+        <div id="wordbank" >
             <!-- words created by js -->
         </div>
-        <div id="colophon">
-            <p>Another thing by <a href="http://ryanabraham.net">Ryan Abraham</a> and <a href="https://github.com/bshaughn/">Bart Shaughn</a></p>
-        </div>
+        <!--<div id="colophon">
+            <p>Another thing by <a href="http://ryanabraham.net">Ryan Abraham</a> and <a href="https://github.com/bshaughn/">Bart Shaughnessy</a></p>
+        </div>-->
     </div>
+
+    <div id="colophon">
+            <p>Another thing by <a href="http://ryanabraham.net">Ryan Abraham</a> and <a href="https://github.com/bshaughn/">Bart Shaughnessy</a></p>
+        </div>
+
     <!-- menu toggle icon -->
     <a href="#nav" class="nav-trigger">Menu 
         <span class="nav-icon"></span>
@@ -53,6 +62,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery-ui-touchpunch.min.js"></script>
     <script src="http://ec2-52-53-207-223.us-west-1.compute.amazonaws.com:9000/socket.io/socket.io.js"></script>
+    <!--<script src="http://localhost:4444/socket.io/socket.io.js"></script> -->
     <script src="js/client.js"></script>
 </body>
 </html>
