@@ -2,6 +2,9 @@ var request = require('request');
 var fs = require('fs');
 var word_chunks = [];
 
+var refreshCount = 0;
+
+
 function wordChunkLoader() {
     var dir = './library'
     var files = fs.readdirSync(dir);
@@ -25,6 +28,7 @@ function wordChunkLoader() {
 function slicer() {
     console.log("Inside slicer");
     if (word_chunks.length == 0) {
+        console.log("NO CHUNKS! NEED LOADER");
         wordChunkLoader();
     }
 
@@ -32,7 +36,12 @@ function slicer() {
     var wordsToAdd = 25;
     var index = parseInt((Math.random()*1000000)%word_chunks.length);
 
+    var wordCount = 0;
+
     while (wordsToAdd>0) {
+
+        
+
         if (index>=word_chunks.length) {  //handle wraparound.
             index = 0;
         }
@@ -44,11 +53,14 @@ function slicer() {
             var chunkIndex = 0;
 
             while (chunkIndex<chunkWords.length-3) {
+
                 var wordsInTile = parseInt((Math.random()*1000)%3);
                 var magnetText = "";
+
                 while (wordsInTile >= 0) {
                     if (!chunkWords[chunkIndex]) {
-                        wordsInTile = 0
+                        //wordsInTile = 0
+                        wordsInTile = -1
                     } else {
                         if (chunkWords[chunkIndex] != " ") {
                             if (magnetText != "") {
@@ -59,6 +71,8 @@ function slicer() {
                             if (wordsInTile != 0){
                                 magnetText += '&nbsp';
                             }
+
+
                             wordsInTile--;
                             
                         } else {
@@ -66,6 +80,7 @@ function slicer() {
                         }
                     }
                 }
+
                 if (magnetText != "") {
                     words.push(magnetText);
                     wordsToAdd--;
@@ -75,6 +90,7 @@ function slicer() {
         }
         index++;
     }
+    console.log("MADE WORD BANK INSIDE SLICER");
     return words
 }
 

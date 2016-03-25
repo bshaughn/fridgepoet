@@ -171,9 +171,9 @@
         {
             "guid": 880472430,
             "word": "evidently thinking of",
-            "x": 455.9375,
-            "y": 170,
-            "clientId": 1431135190822,
+            "x": 378.953125,
+            "y": 231,
+            "clientId": 237169895797,
             "username": "eric"
         },
         {
@@ -275,9 +275,25 @@
         {
             "guid": 243679373,
             "word": "morose, with lanky",
-            "x": 324.953125,
-            "y": 125,
-            "clientId": 430275192282,
+            "x": 802,
+            "y": 162,
+            "clientId": 237169895797,
+            "username": "eric"
+        },
+        {
+            "guid": 758517240,
+            "word": "mouth his mouth",
+            "x": 404.328125,
+            "y": 306,
+            "clientId": 183503680786,
+            "username": "eric"
+        },
+        {
+            "guid": 736908741,
+            "word": "never entered my",
+            "x": 349.171875,
+            "y": 265,
+            "clientId": 183503680786,
             "username": "eric"
         }
     ]

@@ -43,8 +43,22 @@ io.on('connection', function (socket) {
 
     socket.on('refresh-wordbank', function() {
         console.log("Called Refresh Wordbank");
+        //var dumbWords = ["Moe", "Larry", "Curly", "dumb"];
+       // var goodWords = slicer();
         socket.emit('wordbank-words', slicer());
+        //socket.emit('wordbank-words', goodWords);
+
+
+       // socket.emit('wordbank-words', lollygag());
     });
+
+    function lollygag() {
+        for (i=0; i<1000000000; i++){
+            j = ((i+i-1)*1)/1;
+        }
+
+        return ["Moe", "Larry", "Curly", "dumb"];
+    }
     
     var addedUser = false;
     //when the client emits username
@@ -114,6 +128,7 @@ io.on('connection', function (socket) {
 
     //when the user disconnects...
     socket.on('disconnect', function() {
+        console.log("User DISCONNECTED");
         if (addedUser) {
             --numUsers;
             //broadcast that this client has left
