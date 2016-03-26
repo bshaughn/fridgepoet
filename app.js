@@ -8,8 +8,8 @@ var app = require('http').createServer(handler),
 var fileServer = new static.Server('./');
 
 //this is the port for our web server.
-app.listen(4444, function(){
-    console.log('listening on port 4444');
+app.listen(9000, function(){
+    console.log('listening on port 9000');
 });
 
 //if the URL of the socket server is opened in a browser
@@ -39,30 +39,11 @@ io.on('connection', function (socket) {
     socket.emit('word_data', wordData);
 
     //send wordbank words to new clients
-    socket.emit('wordbank-words', slicer());
-
-    socket.on('refresh-wordbank', function() {
-        console.log("Called Refresh Wordbank");
-        //var dumbWords = ["Moe", "Larry", "Curly", "dumb"];
-       // var goodWords = slicer();
-        socket.emit('wordbank-words', slicer());
-        //socket.emit('wordbank-words', goodWords);
-
-
-       // socket.emit('wordbank-words', lollygag());
-    });
-
-    function lollygag() {
-        for (i=0; i<1000000000; i++){
-            j = ((i+i-1)*1)/1;
-        }
-
-        return ["Moe", "Larry", "Curly", "dumb"];
-    }
+    socket.emit('wordbank_words', slicer());
     
     var addedUser = false;
     //when the client emits username
-    socket.on('add user', function(username, clientId) {
+    socket.on('add_user', function(username, clientId) {
         if (addedUser) return;
         //store the username and clientId in the socket session for this client
         socket.username = username;
@@ -71,7 +52,7 @@ io.on('connection', function (socket) {
         addedUser = true;
         socket.emit('login', {numUsers: numUsers});
         //broadcast to all clients that new user has connected
-        socket.broadcast.emit('user joined', {
+        socket.broadcast.emit('user_joined', {
             username: socket.username,
             numUsers: numUsers
         });
@@ -106,6 +87,11 @@ io.on('connection', function (socket) {
         }
     });
 
+    //when a client requests new words...
+    socket.on('refresh_wordbank', function() {
+        socket.emit('wordbank_words', slicer());
+    });
+
     //when a client introduces a new word...
     socket.on('new_word', function (data) {
         //broadcast to clients
@@ -119,20 +105,20 @@ io.on('connection', function (socket) {
         });
     });
 
-    //when a user completes a drag event...
+    //when a client completes a drag event...
     socket.on('dragstop', function (data) {
         //broadcast to clients
         socket.broadcast.emit('drag_complete', data);
         //and write new word to JSON
     });
 
-    //when the user disconnects...
+    //when the client disconnects...
     socket.on('disconnect', function() {
-        console.log("User DISCONNECTED");
+        console.log("User Disconnected");
         if (addedUser) {
             --numUsers;
             //broadcast that this client has left
-            socket.broadcast.emit('user left', {
+            socket.broadcast.emit('user_left', {
                 username: socket.username,
                 clientId: socket.clientId,
                 numUsers: numUsers

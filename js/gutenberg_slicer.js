@@ -2,19 +2,13 @@ var request = require('request');
 var fs = require('fs');
 var word_chunks = [];
 
-var refreshCount = 0;
-
-
 function wordChunkLoader() {
     var dir = './library'
     var files = fs.readdirSync(dir);
     for(var i in files){
         if (!files.hasOwnProperty(i)) continue;
         var name = dir+'/'+files[i];
-        //console.log(name)
         if (!fs.statSync(name).isDirectory() && name.substr(name.length-3, 3)=="txt"){
-            //console.log(name)
-            //fileList.push(name);
             fs.readFile(name, 'utf8', (err, data) => {
                 if (err) throw err;
                 word_chunks = word_chunks.concat(data.split('\n\n'));
@@ -26,21 +20,16 @@ function wordChunkLoader() {
 }
 
 function slicer() {
-    console.log("Inside slicer");
+    //console.log("Inside slicer");
     if (word_chunks.length == 0) {
         console.log("NO CHUNKS! NEED LOADER");
         wordChunkLoader();
     }
-
     words = [];
     var wordsToAdd = 25;
     var index = parseInt((Math.random()*1000000)%word_chunks.length);
 
-    var wordCount = 0;
-
     while (wordsToAdd>0) {
-
-        
 
         if (index>=word_chunks.length) {  //handle wraparound.
             index = 0;
@@ -66,13 +55,10 @@ function slicer() {
                             if (magnetText != "") {
                                 chunkWords[chunkIndex] = (chunkWords[chunkIndex]).toLowerCase();
                             }
-
                             magnetText += ((chunkWords[chunkIndex++]).trim());
                             if (wordsInTile != 0){
                                 magnetText += '&nbsp';
                             }
-
-
                             wordsInTile--;
                             
                         } else {
@@ -80,7 +66,6 @@ function slicer() {
                         }
                     }
                 }
-
                 if (magnetText != "") {
                     words.push(magnetText);
                     wordsToAdd--;
@@ -88,9 +73,9 @@ function slicer() {
                 chunkIndex += 4;  //We don't want to have too many tiles from one text chunk :)
             }
         }
-        index++;
+        //index++;
+        index += 63; //move forward an arbitrary number of chunks
     }
-    console.log("MADE WORD BANK INSIDE SLICER");
     return words
 }
 

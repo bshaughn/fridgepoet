@@ -2,8 +2,8 @@ jQuery(document).ready(function($){
     //VARS
 
     //socket port
-    //var url = 'http://ec2-52-53-207-223.us-west-1.compute.amazonaws.com:9000';
-    var url = 'http://localhost:4444';
+    var url = 'http://ec2-54-193-61-98.us-west-1.compute.amazonaws.com:9000';
+    //var url = 'http://localhost:4444';
     
     //generate a unique client ID
     var clientId = Math.round($.now()*Math.random());
@@ -44,9 +44,7 @@ jQuery(document).ready(function($){
 
     //populate the wordbank
     function populateWordBank(words) {
-
         if (!words) {return;}
-
         wordcount = 25;
         for (var i=0; i<=wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
@@ -56,15 +54,8 @@ jQuery(document).ready(function($){
         bindEvents(tile);
     }
 
-    $('#refresh-button').on('click', function() {
-        console.log("Clicked refresh button");
-        $('#wordbank').empty();
-        socket.emit('refresh-wordbank');
-    });
-
     //a reusable function for binding drag events
     function bindEvents(tile) {
-        console.log(tile.text() + ' has been bound');
         bindDrag(tile);
         bindDragStart(tile);
         bindDrop(tile);
@@ -219,7 +210,7 @@ jQuery(document).ready(function($){
             var $loginPage = $('#login-page'); // The login page
             $loginPage.fadeOut();
             $loginPage.off('click');
-            socket.emit('add user', username, clientId);
+            socket.emit('add_user', username, clientId);
             $('body').removeClass('overflow-hidden');
         } else if (username == '') {
             alert('enter a pen name you dingus!');
@@ -230,6 +221,12 @@ jQuery(document).ready(function($){
     function cleanInput(input) {
         return $('<div/>').text(input).text();
     }
+
+    //request new words
+    $('#refresh-button').on('click', function() {
+        $('#wordbank').empty();
+        socket.emit('refresh_wordbank');
+    });
 
     //menu event handler
     $('.nav-trigger').on('click', function(event){
@@ -282,8 +279,7 @@ jQuery(document).ready(function($){
     //SERVER EVENTS
 
     //populate wordbank when server sends words
-    socket.on('wordbank-words', function (data) {
-        console.log("Got Words");
+    socket.on('wordbank_words', function (data) {
         populateWordBank(data);
     });
 
@@ -333,24 +329,21 @@ jQuery(document).ready(function($){
 
     //when another client completes a drag...
     socket.on('drag_complete', function (data) {
-        console.log('drag complete');
         //log a message
-        //setTimeout(function(){
-            log(data.username, ' moved word: '+ data.word);
-        //},10);
+        log(data.username, ' moved word: '+ data.word);
         //and remove dragging class
         var thisWord = $("#fridge").find("#" + data.guid);
         thisWord.removeClass('dragging'); 
     });
 
     //whenever the server emits 'user joined', display data on the message board
-    socket.on('user joined', function(data) {
+    socket.on('user_joined', function(data) {
         log(data.username, ' entered the kitchen');
         participants(data);
     });
 
     //whenever the server emits 'user left', log it in the chat body
-    socket.on('user left', function(data) {
+    socket.on('user_left', function(data) {
         log(data.username, ' left the kitchen');
         removeCursor(data.clientId);
         participants(data);

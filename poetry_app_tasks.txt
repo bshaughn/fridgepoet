@@ -30,11 +30,12 @@ poetry app tasks
 
     Getting it online!
         buy domain of our choosing
-        follow the instructions here: https://www.youtube.com/watch?v=WxhFq64FQzA to set up an Amazon EC2 instance with node
-        migrate the app to Amazon
-        user/stress testing
-        point domain to EC2 instance, test
-        SHARE!!!!
+       // follow the instructions here: https://www.youtube.com/watch?v=WxhFq64FQzA to set up an Amazon EC2 instance with node
+        //migrate the app to Amazon
+        //user/stress testing
+        //point domain to EC2 instance, test
+        //SHARE!!!!
+           -done! More testing, then we'll get a domain
 
     Expansions / Goodies
         right-click options:
@@ -59,8 +60,10 @@ poetry app tasks
 
     Open Issues
        // magnets with multiple words crash into each other on drag, hard-code HTML spaces between words, doing so in inspector confirms a fix
-	dragging magnet with 3 words causes text to smash together when it hits the word bin boundary
+	//dragging magnet with 3 words causes text to smash together when it hits the word bin boundary
+       ->fixed! Corrected Slicer to remove newline characters between words in a tile
         sometimes for unknown reasons, several messages are broadcasted/logged when a user moves a newly introduced word
+        multiple binding issue...
         "new word" and "moved" messages are logged when a new word is introduced. Should only show "new word" message
         sometimes if a user refreshes the page their old cursor isn't deleted from other users' fridge but a new one is created
 	//slicer sometimes returns “undefined”

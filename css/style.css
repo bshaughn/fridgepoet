@@ -330,8 +330,7 @@ ul.messages li.message span {
 	transition-timing-function: ease-in;
 }
 #dashboard {
-	/*position:fixed;*/
-    position: absolute;
+	position:fixed;
 	width:325px;
 	height:100%;
 	background-color:#745463;
@@ -344,7 +343,6 @@ ul.messages li.message span {
 	-moz-transition: -moz-transform 0.5s;
 	transition: transform 0.5s;
 	transition-timing-function: ease-in;
-    /*overflow-y: scroll;*/
 }
 #title {
 	width: 100%;
@@ -364,23 +362,39 @@ ul.messages li.message span {
 	width:100%;
 	height:calc(100vh - 146px);
     overflow-y:scroll;
-    /*overflow: scroll;*/
     padding:5px;
+}
+#refresh-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    position: absolute;
+    left:10px;
+    bottom:49px;
+    width:305px;
+    height:45px;
+    padding: 0;
+    text-align: center;
+    background-color: #90a686;
+    color:#fcfcfc;
+    font-size:1em;
+    font-family: "Vollkorn",serif;
+    cursor:pointer;
 }
 #colophon {
     position: absolute;
-    /*position: relative;*/
     left:0;
     bottom:0;
     width:100%;
-    height:50px;
+    height:49px;
     text-align: center;
     background-color: #745463;
     color:#986b6e;
     font-size:.75em;
 }
 #colophon p {
-    line-height: 50px;
+    line-height: 49px;
     margin:0;
 }
 #colophon a {
@@ -396,7 +410,7 @@ ul.messages li.message span {
         left: 0px;
         width: 100vw;
         height: 100vh;
-        /*overflow:hidden;*/
+        overflow:hidden;
     }
     #login-page .title, #login-page .usernameInput {
         font-size: 24px;
@@ -446,7 +460,6 @@ ul.messages li.message span {
         width:100%;
         height:50%;
         padding:5px;
-        /*overflow: auto;*/
         -webkit-transform: translateY(100%);
         -moz-transform: translateY(100%);
         -ms-transform: translateY(100%);
@@ -461,8 +474,7 @@ ul.messages li.message span {
         display:none;
     }
     #colophon {
-        /*position: relative;*/
-        position: absolute;
+        position: relative;
     }
     #message-board {
         width:100%;
