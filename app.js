@@ -8,8 +8,8 @@ var app = require('http').createServer(handler),
 var fileServer = new static.Server('./');
 
 //this is the port for our web server.
-app.listen(9000, function(){
-    console.log('listening on port 9000');
+app.listen(4444, function(){
+    console.log('listening on port 4444');
 });
 
 //if the URL of the socket server is opened in a browser

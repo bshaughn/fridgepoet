@@ -2,8 +2,8 @@ jQuery(document).ready(function($){
     //VARS
 
     //socket port
-    var url = 'http://ec2-54-193-61-98.us-west-1.compute.amazonaws.com:9000';
-    //var url = 'http://localhost:4444';
+    //var url = 'http://ec2-54-193-61-98.us-west-1.compute.amazonaws.com:9000';
+    var url = 'http://localhost:4444';
     
     //generate a unique client ID
     var clientId = Math.round($.now()*Math.random());
@@ -49,8 +49,8 @@ jQuery(document).ready(function($){
         for (var i=0; i<=wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
         }
-        makeAbsolute();
-        var tile = $(".word");
+        //makeAbsolute();    // These might be what to change
+        var tile = $(".word");  //for the colophon to work
         bindEvents(tile);
     }
 

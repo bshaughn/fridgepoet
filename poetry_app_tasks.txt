@@ -26,7 +26,7 @@ poetry app tasks
         //add style
         //create mobile UI
         import Jquery UI touch patch
-        import more text sources, maybe "The Raven"
+        
 
     Getting it online!
         buy domain of our choosing
@@ -57,6 +57,8 @@ poetry app tasks
 
         suggest on new words and vote on other users submissions?
         See how many words you’ve placed that other people are using
+	Fridge mixins: selected Source texts in a fridge config object
+	Sound Effects and Emojis
 
     Open Issues
        // magnets with multiple words crash into each other on drag, hard-code HTML spaces between words, doing so in inspector confirms a fix
@@ -74,3 +76,8 @@ poetry app tasks
 
     Always
         REFACTOR + IMPROVE
+
+  Next steps:
+   import more text sources, maybe "The Raven”, Moby Dick, The Odyssey, War & Peace, Crime & Punishment, Salman Rushdie (Satanic Verses or Midnights Children), 1984.
+      Let’s add like 25 more texts and see how it runs
+   

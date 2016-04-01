@@ -2,6 +2,8 @@ var request = require('request');
 var fs = require('fs');
 var word_chunks = [];
 
+//begin Mnemotechniq
+
 function wordChunkLoader() {
     var dir = './library'
     var files = fs.readdirSync(dir);

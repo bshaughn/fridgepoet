@@ -330,7 +330,8 @@ ul.messages li.message span {
 	transition-timing-function: ease-in;
 }
 #dashboard {
-	position:fixed;
+	/*position:fixed;*/
+    position: absolute;
 	width:325px;
 	height:100%;
 	background-color:#745463;
@@ -383,7 +384,8 @@ ul.messages li.message span {
     cursor:pointer;
 }
 #colophon {
-    position: absolute;
+    /*position: absolute;*/
+    position: relative;
     left:0;
     bottom:0;
     width:100%;
@@ -474,7 +476,8 @@ ul.messages li.message span {
         display:none;
     }
     #colophon {
-        position: relative;
+        /*position: relative;*/
+        position: absolute;
     }
     #message-board {
         width:100%;
