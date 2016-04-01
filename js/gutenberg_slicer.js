@@ -72,7 +72,7 @@ function slicer() {
                     words.push(magnetText);
                     wordsToAdd--;
                 }
-                chunkIndex += 4;  //We don't want to have too many tiles from one text chunk :)
+                chunkIndex += 21;  //We don't want to have too many tiles from one text chunk :)
             }
         }
         //index++;
