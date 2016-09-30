@@ -19,9 +19,11 @@ function wordChunkLoader() {
         }
     }
     console.log("Finished loading word chunks");
+
 }
 
 function slicer() {
+    console.log("Size of word chunks: "+word_chunks.length);
     //console.log("Inside slicer");
     if (word_chunks.length == 0) {
         console.log("NO CHUNKS! NEED LOADER");
@@ -54,9 +56,14 @@ function slicer() {
                         wordsInTile = -1
                     } else {
                         if (chunkWords[chunkIndex] != " ") {
-                            if (magnetText != "") {
-                                chunkWords[chunkIndex] = (chunkWords[chunkIndex]).toLowerCase();
-                            }
+                           // if (magnetText != "") {
+                                var okToLowerCase = true
+                                //somewhat unorthodox, but we use this boolean to check for variations of firstperson (I)
+                                okToLowerCase = chunkWords[chunkIndex] != 'I' && chunkWords[chunkIndex] != "I'd" && chunkWords[chunkIndex] != "I'm" && chunkWords[chunkIndex] != "I'll";
+                                if (okToLowerCase) {
+                                    chunkWords[chunkIndex] = (chunkWords[chunkIndex]).toLowerCase();
+                                }
+                           // }
                             magnetText += ((chunkWords[chunkIndex++]).trim());
                             if (wordsInTile != 0){
                                 magnetText += '&nbsp';
@@ -72,12 +79,15 @@ function slicer() {
                     words.push(magnetText);
                     wordsToAdd--;
                 }
-                chunkIndex += 21;  //We don't want to have too many tiles from one text chunk :)
+
+                chunkIndex += 832;  //We don't want to have too many tiles from one text chunk :)
             }
         }
         //index++;
         index += 63; //move forward an arbitrary number of chunks
     }
+    console.log("words length: "+words.length);
+    console.log(words);
     return words
 }
 

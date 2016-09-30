@@ -43,10 +43,10 @@
         {
             "guid": 123456785,
             "word": "pretzels",
-            "x": 562.9499969482422,
-            "y": 127,
-            "clientId": 1031419884115,
-            "username": "ryan"
+            "x": 691.9375,
+            "y": 197,
+            "clientId": 457203178534,
+            "username": "no"
         },
         {
             "guid": 123456784,
@@ -83,34 +83,34 @@
         {
             "guid": 347444566,
             "word": "hagboat",
-            "x": 620.9666748046875,
-            "y": 262,
-            "clientId": 789064514321,
-            "username": "ryan"
+            "x": 463.609375,
+            "y": 644,
+            "clientId": 457203178534,
+            "username": "no"
         },
         {
             "guid": 709152260,
             "word": "gargoyle",
-            "x": 420.9666748046875,
-            "y": 469,
-            "clientId": 1162306225334,
-            "username": "ryan"
+            "x": 281.953125,
+            "y": 536,
+            "clientId": 457203178534,
+            "username": "no"
         },
         {
             "guid": 684873419,
             "word": "viperlike",
-            "x": 532,
-            "y": 378,
-            "clientId": 1366199750748,
-            "username": "Poet"
+            "x": 410.953125,
+            "y": 363,
+            "clientId": 628689919258,
+            "username": "brian"
         },
         {
             "guid": 808331228,
             "word": "blubberous",
-            "x": 792.46875,
-            "y": 193,
-            "clientId": 231855180342,
-            "username": "ryan"
+            "x": 801.46875,
+            "y": 540,
+            "clientId": 457203178534,
+            "username": "no"
         },
         {
             "guid": 22842022,
@@ -155,10 +155,10 @@
         {
             "guid": 874205085,
             "word": "with some liqueur",
-            "x": 419,
-            "y": 51,
-            "clientId": 998037236922,
-            "username": "Steve"
+            "x": 688.953125,
+            "y": 262,
+            "clientId": 628689919258,
+            "username": "brian"
         },
         {
             "guid": 224442827,
@@ -227,10 +227,10 @@
         {
             "guid": 455131090,
             "word": "Martin cunningham thwarted",
-            "x": 900,
-            "y": 127,
-            "clientId": 1351933564126,
-            "username": "bill"
+            "x": 903,
+            "y": 288,
+            "clientId": 628689919258,
+            "username": "brian"
         },
         {
             "guid": 444067766,
@@ -363,10 +363,10 @@
         {
             "guid": 622873068,
             "word": "And curdken went",
-            "x": 374,
-            "y": 95,
-            "clientId": 220420599586,
-            "username": "anonymous"
+            "x": 796,
+            "y": 309,
+            "clientId": 628689919258,
+            "username": "brian"
         },
         {
             "guid": 903928078,
@@ -403,10 +403,10 @@
         {
             "guid": 704829221,
             "word": "place of business",
-            "x": 839.9375,
-            "y": 149,
-            "clientId": 998037236922,
-            "username": "Steve"
+            "x": 834.9375,
+            "y": 353,
+            "clientId": 628689919258,
+            "username": "brian"
         },
         {
             "guid": 769210503,
@@ -431,6 +431,150 @@
             "y": 0,
             "clientId": 998037236922,
             "username": "Steve"
+        },
+        {
+            "guid": 450134268,
+            "word": "Snegiryov is not",
+            "x": 626,
+            "y": 33,
+            "clientId": 200426291455,
+            "username": "braincaptain"
+        },
+        {
+            "guid": 925865285,
+            "word": "that for",
+            "x": 691.21875,
+            "y": -43,
+            "clientId": 200426291455,
+            "username": "braincaptain"
+        },
+        {
+            "guid": 276038624,
+            "word": "“That’s why she",
+            "x": 752.03125,
+            "y": -52,
+            "clientId": 200426291455,
+            "username": "braincaptain"
+        },
+        {
+            "guid": 587199231,
+            "word": "Pavlovitch was",
+            "x": 968.9375,
+            "y": 127,
+            "clientId": 628689919258,
+            "username": "brian"
+        },
+        {
+            "guid": 165015320,
+            "word": "set to",
+            "x": 818.640625,
+            "y": 26,
+            "clientId": 200426291455,
+            "username": "braincaptain"
+        },
+        {
+            "guid": 212715821,
+            "word": "The head of",
+            "x": 349.90625,
+            "y": 0,
+            "clientId": 1113434450709,
+            "username": "brazen"
+        },
+        {
+            "guid": 969061397,
+            "word": "he can",
+            "x": 437.8125,
+            "y": 26,
+            "clientId": 1113434450709,
+            "username": "brazen"
+        },
+        {
+            "guid": 542298428,
+            "word": "\"If we get",
+            "x": 726.359375,
+            "y": 16,
+            "clientId": 1113434450709,
+            "username": "brazen"
+        },
+        {
+            "guid": 646876585,
+            "word": "\"The commander-in-chief is",
+            "x": 594.9375,
+            "y": -60,
+            "clientId": 628689919258,
+            "username": "brian"
+        },
+        {
+            "guid": 787791453,
+            "word": "\"Ka-la! Koo-loo!\" howled",
+            "x": 1217,
+            "y": 17,
+            "clientId": 468249093117,
+            "username": "nonsense"
+        },
+        {
+            "guid": 333629620,
+            "word": "He took the",
+            "x": 772,
+            "y": 109,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 585681044,
+            "word": "\"Oh, oh, oh!",
+            "x": 115.65625,
+            "y": 10,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 757524481,
+            "word": "this empiricism--melancholy inheritance",
+            "x": 207.0625,
+            "y": 10,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 711099557,
+            "word": "rather be publio",
+            "x": 581.171875,
+            "y": 519,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 480540656,
+            "word": "crushing it",
+            "x": 1078.828125,
+            "y": 350,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 187895312,
+            "word": "“what wild dream",
+            "x": 748.265625,
+            "y": 268,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 279663280,
+            "word": "“to be sure",
+            "x": 922.328125,
+            "y": 66,
+            "clientId": 457203178534,
+            "username": "no"
+        },
+        {
+            "guid": 862046981,
+            "word": "“do you",
+            "x": 1057.3125,
+            "y": 152,
+            "clientId": 457203178534,
+            "username": "no"
         }
     ]
 }

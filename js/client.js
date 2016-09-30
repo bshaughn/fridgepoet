@@ -46,7 +46,8 @@ jQuery(document).ready(function($){
     function populateWordBank(words) {
         if (!words) {return;}
         wordcount = 25;
-        for (var i=0; i<=wordcount; i++) {
+        //for (var i=0; i<=wordcount; i++) {
+            for (var i=0; i<wordcount; i++) {
             $('#wordbank').append('<div id="'+Math.floor(Math.random() * 1000000000)+'" class="new word"><p>'+words[i]+'</p></div>');
         }
         //makeAbsolute();    // These might be what to change
